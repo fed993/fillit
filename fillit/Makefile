@@ -4,7 +4,7 @@ OBJECTS = main.o read_tets.o
 
 HEADERS = header
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -g
 
 LIBRARY = fillit.a
 
