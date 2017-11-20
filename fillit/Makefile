@@ -1,4 +1,4 @@
-SOURCES = main.c read_tets.c
+SOURCES = main.c read_tets.c libft/*.c print2dchararr.c parse_file.c
 
 OBJECTS = main.o read_tets.o
 

@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   print2dchararr.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 03:15:46 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/11/19 15:58:57 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/11/15 01:09:57 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/11/18 15:41:13 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		main()
+void	print2dchararr(char **arr)
 {
-	int fdin;
-	char	*file_string;
+	int		i;
 
-	fdin = 0;
-//	if (ac != 2)
-//	{
-//		write(1, "usage", 5);
-//	}
-//	else
-//	{
-//		fdin = open(av[ac - 1], O_RDWR);
-		fdin = open("sample.fillit", O_RDWR);
-		file_string = parse_file(fdin);
-		write(1, file_string, ft_strlen(file_string));
-		print2dchararr(read_tets(file_string));
-//	}
+	i = 0;
+	while(*arr)
+	{
+		while(*arr[i])
+		{
+			//write(1, arr[i], 1);
+			i++;
+		}
+		write(1, "\n", 1);
+		arr++;
+	}
+	write(1, "function executed", ft_strlen("function executed"));
 }
