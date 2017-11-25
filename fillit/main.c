@@ -29,5 +29,6 @@ int		main()
 		file_string = parse_file(fdin);
 		write(1, file_string, ft_strlen(file_string));
 		print2dchararr(read_tets(file_string));
+		return (1);
 //	}
 }
