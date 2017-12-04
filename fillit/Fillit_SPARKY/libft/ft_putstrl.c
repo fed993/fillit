@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_file.c                                       :+:      :+:    :+:   */
+/*   ft_putstrl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 03:09:57 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/11/29 04:16:49 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/10/21 05:09:40 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/21 05:21:55 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-char	*parse_file(int fd)
+void	ft_putstrl(char *str, int length)
 {
-	char	char_buffer[1];
-	char	*full_tet_string;
+	int i;
 
-	full_tet_string = (char*)malloc(TET_SIZE * MAX_TETS);
-	while (read(fd, char_buffer, 1))
+	i = 0;
+	while (i < length)
 	{
-		ft_strcat(full_tet_string, char_buffer);
+		ft_putchar(str[i]);
+		i++;
 	}
-	return (full_tet_string);
 }

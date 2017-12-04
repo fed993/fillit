@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_file.c                                       :+:      :+:    :+:   */
+/*   ft_itoa_neg_helper.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 03:09:57 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/11/29 04:16:49 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/10/21 05:43:49 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/21 05:46:00 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-char	*parse_file(int fd)
+void	ft_itoa_neg_helper(int *n, int *negative_flag)
 {
-	char	char_buffer[1];
-	char	*full_tet_string;
-
-	full_tet_string = (char*)malloc(TET_SIZE * MAX_TETS);
-	while (read(fd, char_buffer, 1))
+	if (*n < 0)
 	{
-		ft_strcat(full_tet_string, char_buffer);
+		*n *= -1;
+		*negative_flag = 1;
 	}
-	return (full_tet_string);
 }

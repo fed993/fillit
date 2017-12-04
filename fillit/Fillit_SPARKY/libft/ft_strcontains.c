@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_file.c                                       :+:      :+:    :+:   */
+/*   ft_strcontains.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 03:09:57 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/11/29 04:16:49 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/09/27 17:04:24 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/09/27 17:11:24 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-char	*parse_file(int fd)
+int		ft_strcontains(char *s, char c)
 {
-	char	char_buffer[1];
-	char	*full_tet_string;
-
-	full_tet_string = (char*)malloc(TET_SIZE * MAX_TETS);
-	while (read(fd, char_buffer, 1))
+	while (*s != '\0')
 	{
-		ft_strcat(full_tet_string, char_buffer);
+		if (*s == c)
+			return (1);
+		s++;
 	}
-	return (full_tet_string);
+	return (0);
 }

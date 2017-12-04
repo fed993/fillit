@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_file.c                                       :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 03:09:57 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/11/29 04:16:49 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/10/09 13:32:56 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/21 20:53:48 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-char	*parse_file(int fd)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t len)
 {
-	char	char_buffer[1];
-	char	*full_tet_string;
+	unsigned int i;
 
-	full_tet_string = (char*)malloc(TET_SIZE * MAX_TETS);
-	while (read(fd, char_buffer, 1))
+	i = 0;
+	while (i < len)
 	{
-		ft_strcat(full_tet_string, char_buffer);
+		*((unsigned char *)dst + i) = *((unsigned char *)src + i);
+		if (*((unsigned char *)src + i) == (unsigned char)c)
+			return ((unsigned char *)dst + i + 1);
+		i++;
 	}
-	return (full_tet_string);
+	return (NULL);
 }

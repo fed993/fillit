@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_file.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 03:09:57 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/11/29 04:16:49 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/09/25 20:14:00 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/21 19:12:11 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-char	*parse_file(int fd)
+char	*ft_strtrim(char const *s)
 {
-	char	char_buffer[1];
-	char	*full_tet_string;
+	char	*strt;
+	char	*end;
 
-	full_tet_string = (char*)malloc(TET_SIZE * MAX_TETS);
-	while (read(fd, char_buffer, 1))
+	if (!s)
+		return (NULL);
+	strt = (char*)s;
+	end = ft_strchr(s, 0) - 1;
+	while (ft_cantrim(*strt))
 	{
-		ft_strcat(full_tet_string, char_buffer);
+		strt++;
 	}
-	return (full_tet_string);
+	while (ft_cantrim(*end) && (end > strt))
+	{
+		end--;
+	}
+	return (ft_strsub(strt, 0, 1 + end - strt));
 }

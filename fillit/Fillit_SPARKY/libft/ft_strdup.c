@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_file.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 03:09:57 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/11/29 04:16:49 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/10/20 17:45:30 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/20 18:01:52 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-char	*parse_file(int fd)
+char	*ft_strdup(const char *s1)
 {
-	char	char_buffer[1];
-	char	*full_tet_string;
+	char	*out;
 
-	full_tet_string = (char*)malloc(TET_SIZE * MAX_TETS);
-	while (read(fd, char_buffer, 1))
+	out = (char*)malloc((sizeof(char) * ft_strlen(s1)));
+	if (out)
 	{
-		ft_strcat(full_tet_string, char_buffer);
+		ft_strcpy(out, s1);
 	}
-	return (full_tet_string);
+	return (out);
 }

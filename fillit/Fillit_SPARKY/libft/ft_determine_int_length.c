@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_file.c                                       :+:      :+:    :+:   */
+/*   ft_determine_int_length.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 03:09:57 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/11/29 04:16:49 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/10/21 05:08:22 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/21 05:28:54 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-char	*parse_file(int fd)
+int		ft_determine_int_length(int nb)
 {
-	char	char_buffer[1];
-	char	*full_tet_string;
+	int digt_cnt;
 
-	full_tet_string = (char*)malloc(TET_SIZE * MAX_TETS);
-	while (read(fd, char_buffer, 1))
+	digt_cnt = 1;
+	nb = (nb < 0) ? -nb : nb;
+	while (nb > 10)
 	{
-		ft_strcat(full_tet_string, char_buffer);
+		nb = (nb / 10);
+		digt_cnt++;
 	}
-	return (full_tet_string);
+	return (digt_cnt);
 }

@@ -1,26 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_file.c                                       :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 03:09:57 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/11/29 04:16:49 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/10/20 02:14:27 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/20 02:35:59 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-char	*parse_file(int fd)
+char	*ft_strstr(const char *src, const char *in)
 {
-	char	char_buffer[1];
-	char	*full_tet_string;
+	char	*s1;
+	char	*s2;
 
-	full_tet_string = (char*)malloc(TET_SIZE * MAX_TETS);
-	while (read(fd, char_buffer, 1))
+	if (!*in)
+		return ((char*)src);
+	while (*src)
 	{
-		ft_strcat(full_tet_string, char_buffer);
+		if (*src == *in)
+		{
+			s1 = (char*)src;
+			s2 = (char*)in;
+			while ((*s1) && (*s2) && (*s1 == *s2))
+			{
+				s1++;
+				s2++;
+			}
+			if (!*s2)
+			{
+				return ((char*)src);
+			}
+		}
+		src++;
 	}
-	return (full_tet_string);
+	return (NULL);
 }

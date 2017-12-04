@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_file.c                                       :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 03:09:57 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/11/29 04:16:49 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/10/20 01:59:46 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/20 02:04:50 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-char	*parse_file(int fd)
+void	*ft_memalloc(size_t size)
 {
-	char	char_buffer[1];
-	char	*full_tet_string;
+	size_t	i;
+	void	*mem;
 
-	full_tet_string = (char*)malloc(TET_SIZE * MAX_TETS);
-	while (read(fd, char_buffer, 1))
+	i = 0;
+	mem = malloc(size);
+	if (!mem)
 	{
-		ft_strcat(full_tet_string, char_buffer);
+		return (NULL);
 	}
-	return (full_tet_string);
+	while (i < size)
+	{
+		((char*)mem)[i] = 0;
+		i++;
+	}
+	((char*)mem)[i] = '\0';
+	return (mem);
 }

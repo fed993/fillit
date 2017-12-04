@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_file.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
+/*   By: fpolyans <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 03:09:57 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/11/29 04:16:49 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/07/03 05:57:40 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/21 20:03:49 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-char	*parse_file(int fd)
+void	ft_putnbr(int nb)
 {
-	char	char_buffer[1];
-	char	*full_tet_string;
+	unsigned int mnb;
 
-	full_tet_string = (char*)malloc(TET_SIZE * MAX_TETS);
-	while (read(fd, char_buffer, 1))
+	if (nb < 0)
 	{
-		ft_strcat(full_tet_string, char_buffer);
+		ft_putchar('-');
+		mnb = -nb;
 	}
-	return (full_tet_string);
+	else
+		mnb = nb;
+	if (mnb >= 10)
+	{
+		ft_putnbr(mnb / 10);
+		ft_putnbr(mnb % 10);
+	}
+	else if (mnb < 10)
+	{
+		ft_putchar(mnb + '0');
+	}
 }

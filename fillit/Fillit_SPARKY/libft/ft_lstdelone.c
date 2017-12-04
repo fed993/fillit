@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_file.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 03:09:57 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/11/29 04:16:49 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/10/21 20:25:44 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/21 20:28:30 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-char	*parse_file(int fd)
+void	ft_lstdelone(t_list **alst, void (*del)(void*, size_t))
 {
-	char	char_buffer[1];
-	char	*full_tet_string;
-
-	full_tet_string = (char*)malloc(TET_SIZE * MAX_TETS);
-	while (read(fd, char_buffer, 1))
-	{
-		ft_strcat(full_tet_string, char_buffer);
-	}
-	return (full_tet_string);
+	if (alst == NULL || *alst == NULL)
+		return ;
+	if (del != NULL)
+		del((*alst)->content, (*alst)->content_size);
+	free(*alst);
+	*alst = NULL;
 }

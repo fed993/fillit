@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_file.c                                       :+:      :+:    :+:   */
+/*   ft_wrdcnt.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 03:09:57 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/11/29 04:16:49 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/10/21 02:03:21 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/21 02:58:36 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-char	*parse_file(int fd)
+int		ft_wrdcnt(const char *s, char c)
 {
-	char	char_buffer[1];
-	char	*full_tet_string;
+	int		count;
 
-	full_tet_string = (char*)malloc(TET_SIZE * MAX_TETS);
-	while (read(fd, char_buffer, 1))
+	count = 0;
+	while (s && *s)
 	{
-		ft_strcat(full_tet_string, char_buffer);
+		if (*s != c)
+		{
+			++count;
+			s = ft_strchr(s, c);
+		}
+		else
+			s++;
 	}
-	return (full_tet_string);
+	return (count);
 }

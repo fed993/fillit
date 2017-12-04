@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_file.c                                       :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 03:09:57 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/11/29 04:16:49 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/09/19 23:35:50 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/21 19:37:15 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-char	*parse_file(int fd)
+int		ft_strequ(char const *s1, char const *s2)
 {
-	char	char_buffer[1];
-	char	*full_tet_string;
+	int		i;
 
-	full_tet_string = (char*)malloc(TET_SIZE * MAX_TETS);
-	while (read(fd, char_buffer, 1))
+	if (!s1 || !s2)
+		return (0);
+	i = 0;
+	while (s1[i] != '\0' && s2[i] != '\0')
 	{
-		ft_strcat(full_tet_string, char_buffer);
+		if (s1[i] == s2[i])
+			i++;
+		else
+			return (0);
 	}
-	return (full_tet_string);
+	if (s1[i] == '\0' && s2[i] != '\0')
+		return (0);
+	else if (s1[i] != '\0' && s2[i] == '\0')
+		return (0);
+	return (1);
 }

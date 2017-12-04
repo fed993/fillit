@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_file.c                                       :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 03:09:57 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/11/29 04:16:49 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/10/14 19:37:17 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/21 19:29:39 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-char	*parse_file(int fd)
+char	*ft_strmap(char const *s, char (*f)(char))
 {
-	char	char_buffer[1];
-	char	*full_tet_string;
+	char	*out;
+	int		i;
 
-	full_tet_string = (char*)malloc(TET_SIZE * MAX_TETS);
-	while (read(fd, char_buffer, 1))
+	if (!s)
+		return (NULL);
+	out = (char *)malloc((ft_strlen(s) * sizeof(char)) + 1);
+	if (!out)
+		return (NULL);
+	if (out)
 	{
-		ft_strcat(full_tet_string, char_buffer);
+		i = 0;
+		while (s[i])
+		{
+			out[i] = f(s[i]);
+			i++;
+		}
+		out[i] = '\0';
 	}
-	return (full_tet_string);
+	return (out);
 }

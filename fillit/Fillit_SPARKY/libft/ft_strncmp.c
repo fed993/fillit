@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_file.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 03:09:57 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/11/29 04:16:49 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/10/20 16:15:17 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/21 05:25:19 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-char	*parse_file(int fd)
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	char	char_buffer[1];
-	char	*full_tet_string;
-
-	full_tet_string = (char*)malloc(TET_SIZE * MAX_TETS);
-	while (read(fd, char_buffer, 1))
+	while ((*s1) && (*s2) && (*s1 == *s2) && (n > 0))
 	{
-		ft_strcat(full_tet_string, char_buffer);
+		n--;
+		s1++;
+		s2++;
 	}
-	return (full_tet_string);
+	return (n ? ((int)((unsigned char)(*s1) - (unsigned char)(*s2))) : 0);
 }
