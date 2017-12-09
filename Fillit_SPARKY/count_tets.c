@@ -12,7 +12,7 @@ int		count_tets(char *file_string)
 		if (file_string[i] == '#')
 		{
 			count++;
-			while (!(file_string[i] == '\n' && file_string[i+1] == '\n'))
+			while (!(file_string[i] == '\n' && file_string[i + 1] == '\n'))
 				i++;
 		}
 		else
