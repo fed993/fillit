@@ -6,57 +6,48 @@
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/09 04:31:51 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/12/09 11:50:18 by fpolyans         ###   ########.fr       */
+/*   Updated: 2017/12/11 15:28:55 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		iterate_downward(int *i)
+void	set_ints(int (*ints)[3])
 {
-	(*i)--;
-	return (1);
+	(*ints)[0] = 4;
+	(*ints)[1] = 1;
+	(*ints)[2] = 1;
 }
 
-int		verify_file(char *file_string)
+void	iterate_upward(char **str, int (*ints)[3])
 {
-	int		i;
-	int		size;
+	(*str)++;
+	((*ints)[1])++;
+}
 
-	i = 5;
-	size = 1;
-	while (*file_string != '\0')
+int		verify_file(char *str)
+{
+	int		ints[3];
+
+	set_ints(&ints);
+	while (*str != '\0')
 	{
-		if ((i == 5) ? iterate_downward(&size) : (!(size % 21 == 0)))
+		if (ints[1] % 21 == 0)
 		{
-			i = ((i == 5) ? 4 : i);
-			while (i-- > 0)
-			{
-				if (!(*file_string == '.' || file_string[size] == '#'))
-				{
-					ft_putstr("ERROR.#");
-					return (0);
-				}
-				file_string++;
-			}
-			if (!(*file_string == '\n'))
-			{
-				ft_putstr("ERROR.#");
-				return (0);
-			}
-			i = 4;
-			file_string++;
+			ints[2] = (*str != '\n') ? 0 : ints[2];
+			iterate_upward(&str, &ints);
 		}
 		else
 		{
-
-			if (file_string[size++] != '\n')
+			while (ints[0]-- > 0)
 			{
-				ft_putstr("ERROR.#");
-				return (0);
+				ints[2] = (!(*str == '.' || *str == '#')) ? 0 : ints[2];
+				iterate_upward(&str, &ints);
 			}
-			file_string++;
+			ints[2] = (!(*str == '\n')) ? 0 : ints[2];
+			ints[0] = 4;
+			iterate_upward(&str, &ints);
 		}
 	}
-	return (1);
+	return (ints[2]);
 }
