@@ -6,14 +6,14 @@
 #    By: fpolyans <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/05 10:14:45 by fpolyans          #+#    #+#              #
-#    Updated: 2017/12/08 02:07:50 by fpolyans         ###   ########.fr        #
+#    Updated: 2017/12/11 22:14:26 by fpolyans         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
 LIBFT = libft/libft.a
 FLAGS = -g -Wall -Wextra -Werror
-SRC = $(LIBFT) main.c check_and_store.c map.c read.c parse_file.c sample.c count_tets.c
+SRC = $(LIBFT) main.c check_and_store.c map.c read.c check_hashes.c parse_file.c delimit.c
 OBJ = ${SRC:c=o}
 
 all: $(NAME)

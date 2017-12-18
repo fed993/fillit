@@ -7,6 +7,8 @@
 # define TET_WIDTH 5
 # define TET_SIZE 21
 # define MAX_TETS 26
+# define TRUE 1
+# define FALSE 0
 
 char	*read4(int fd, char *buf);
 char	*read1(int fd, char *buf);
@@ -16,8 +18,9 @@ int		get_fd(int argc, char **argv);
 void	create_board_array(char ***board_array, char **file_string);
 int		board_error_check(char ***board_array);
 void	print_board(char ***board_array);
-int		check_hashes(char **file_string);
+int		check_hashes_file(char ***board_arr, int tet_count);
+int		check_hashes_tet(char *file_string);
 int		count_tets(char *file_string);
-void	delimit(char *str, char c);
+int		delimit(char *str, char c);
 
 #endif
