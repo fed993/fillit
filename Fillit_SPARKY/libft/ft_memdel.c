@@ -6,7 +6,7 @@
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/06 22:36:33 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/21 20:00:42 by fpolyans         ###   ########.fr       */
+/*   Updated: 2017/10/21 05:22:40 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_memdel(void **ap)
 {
-	if (!ap)
-		return ;
-	free(*ap);
-	if (*ap != NULL)
+	if (*ap)
+	{
+		free(*ap);
 		*ap = NULL;
+	}
 }

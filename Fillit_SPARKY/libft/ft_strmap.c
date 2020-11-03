@@ -6,7 +6,7 @@
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/14 19:37:17 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/21 19:29:39 by fpolyans         ###   ########.fr       */
+/*   Updated: 2017/10/14 19:57:57 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,7 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	char	*out;
 	int		i;
 
-	if (!s)
-		return (NULL);
 	out = (char *)malloc((ft_strlen(s) * sizeof(char)) + 1);
-	if (!out)
-		return (NULL);
 	if (out)
 	{
 		i = 0;

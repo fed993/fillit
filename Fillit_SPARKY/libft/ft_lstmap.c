@@ -5,29 +5,37 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/21 20:22:15 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/21 20:34:41 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/10/21 07:13:48 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/21 08:08:43 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+t_list	*ft_lstmap(t_list *alst, t_list *(*f)(t_list *))
 {
-	t_list *new;
-	t_list *nlist;
+	t_list	*begin;
+	t_list	*prev;
+	t_list	*new;
 
-	nlist = NULL;
-	if (!lst || !f)
-		return (nlist);
-	nlist = f(lst);
-	new = nlist;
-	lst = lst->next;
-	while (lst)
+	begin = NULL;
+	if (alst != NULL)
 	{
-		new->next = (*f)(lst);
-		new = new->next;
-		lst = lst->next;
+		begin = ft_lstnew((void*)(alst->content), (alst->content_size));
+		if (begin == NULL)
+			return (NULL);
+		begin = f(begin);
+		prev = begin;
+		alst = alst->next;
 	}
-	return (nlist);
+	while (alst != NULL)
+	{
+		new = ft_lstnew(alst->content, (alst->content_size));
+		if (new == NULL)
+			return (NULL);
+		new = f(new);
+		prev->next = new;
+		alst = alst->next;
+	}
+	return (begin);
 }

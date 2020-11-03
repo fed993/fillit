@@ -6,7 +6,7 @@
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 23:35:50 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/21 19:37:15 by fpolyans         ###   ########.fr       */
+/*   Updated: 2017/09/28 18:49:24 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,25 @@ int		ft_strequ(char const *s1, char const *s2)
 {
 	int		i;
 
-	if (!s1 || !s2)
-		return (0);
 	i = 0;
 	while (s1[i] != '\0' && s2[i] != '\0')
 	{
 		if (s1[i] == s2[i])
+		{
 			i++;
+		}
 		else
+		{
 			return (0);
+		}
 	}
 	if (s1[i] == '\0' && s2[i] != '\0')
+	{
 		return (0);
+	}
 	else if (s1[i] != '\0' && s2[i] == '\0')
+	{
 		return (0);
+	}
 	return (1);
 }

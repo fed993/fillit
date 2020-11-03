@@ -11,10 +11,10 @@
 # **************************************************************************** #
 
 NAME = fillit
-LIBFT = libft/libft.a
-FLAGS = -g -Wall -Wextra -Werror
-SRC = $(LIBFT) main.c check_and_store.c map.c read.c check_hashes.c parse_file.c delimit.c
-OBJ = ${SRC:c=o}
+LIBFT = ./libft/libft.a
+FLAGS = -g -Wall -Wextra -Werror -o $(NAME)
+SRC = main.c check_and_store.c map.c read.c check_hashes.c parse_file.c delimit.c $(LIBFT)
+OBJ = ${SRC:.c=.o}
 
 all: $(NAME)
 

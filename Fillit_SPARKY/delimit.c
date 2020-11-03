@@ -13,11 +13,11 @@
 int		delimit(char *file_string, char c)
 {   
 	int     i;
-	int     count;
+//	int     count;
 	int		delimits;
 
 	i = 0;
-	count = 0;
+//	count = 0;
 	delimits = 0;
 	while (file_string[i] != '\0') 
 	{   
@@ -34,11 +34,11 @@ int		delimit(char *file_string, char c)
 int		delimit_tet(char *tet_string, char c)
 {   
 	int     i;
-	int     count;
+//	int     count;
 	int		delimits;
 
 	i = 0;
-	count = 0;
+//	count = 0;
 	delimits = 0;
 	while (tet_string[i] != '\0') 
 	{   

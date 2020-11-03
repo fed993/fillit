@@ -6,7 +6,7 @@
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 17:14:26 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/21 20:15:13 by fpolyans         ###   ########.fr       */
+/*   Updated: 2017/10/21 08:20:51 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void			ft_memdel(void **ap);
 void			ft_strdel(char **as);
 void			ft_strclr(char *s);
 void			ft_striter(char *s, void (*f)(char *));
-void			ft_striteri(char *s, void (*f)(unsigned int, char*));
+void			ft_striteri(char *s, char (*f)(unsigned int, char*));
 void			ft_bzero(void *s, size_t n);
 void			ft_putstrl(char *str, int length);
 void			ft_putstrl_fd(char *str, int length, int fd);

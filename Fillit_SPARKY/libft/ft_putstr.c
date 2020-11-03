@@ -6,7 +6,7 @@
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 23:32:37 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/21 19:49:38 by fpolyans         ###   ########.fr       */
+/*   Updated: 2017/09/28 18:55:21 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	ft_putstr(char const *str)
 {
 	int		i;
 
-	if (!str)
-		return ;
 	i = 0;
 	while (str[i] != '\0')
 	{

@@ -6,7 +6,7 @@
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/06 20:18:42 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/21 19:10:43 by fpolyans         ###   ########.fr       */
+/*   Updated: 2017/10/21 05:21:08 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	ft_strdel(char **as)
 {
-	if (!as)
-		return ;
 	if (*as)
 	{
 		free(*as);

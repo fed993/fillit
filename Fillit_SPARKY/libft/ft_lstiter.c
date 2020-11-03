@@ -5,18 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/21 20:20:54 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/21 20:34:54 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/10/21 07:12:27 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/21 07:13:01 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
+void		ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
-	while (lst)
+	t_list	*link;
+
+	link = lst;
+	while (link)
 	{
-		f(lst);
-		lst = lst->next;
+		f(link);
+		link = link->next;
 	}
 }

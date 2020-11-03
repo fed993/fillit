@@ -6,7 +6,7 @@
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 16:56:03 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/21 20:38:39 by fpolyans         ###   ########.fr       */
+/*   Updated: 2017/09/28 18:46:52 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,23 @@
 
 int		ft_atoi(char *str)
 {
-	int	negflag;
-	int	num;
+	int		num;
+//	size_t	negflag;
+	char	*temp;
 
-	negflag = 0;
 	num = 0;
-	while ((*str == ' ') || (*str == '\t') || (*str == '\n')
-			|| (*str == '\v') || (*str == '\f') || (*str == '\r'))
-		str++;
-	if (*str == 45)
-		negflag = 1;
-	if ((*str == 45) || (*str == 43))
-		str++;
-	while ((*str >= 48) && (*str <= 57))
+	temp = ft_skipblanks(str);
+	if (*temp == '-')
 	{
-		num *= 10;
-		num += ((int)*str - 48);
-		str++;
+//		negflag = 1;
+		temp++;
 	}
-	if (negflag)
-		return (-num);
-	else
-		return (num);
+	while ((*temp >= '0') && (*temp <= '9'))
+	{
+		num = num * 10 + (*temp - '0');
+		temp++;
+	}
+	if (ft_strcontains(str, '-'))
+		num = num * -1;
+	return (num);
 }

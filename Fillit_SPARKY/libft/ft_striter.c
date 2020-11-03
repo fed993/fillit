@@ -6,7 +6,7 @@
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/06 23:01:45 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/21 19:21:56 by fpolyans         ###   ########.fr       */
+/*   Updated: 2017/10/06 23:08:45 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	ft_striter(char *s, void (*f)(char *))
 {
-	if (!s || !f)
-		return ;
 	while (*s)
 	{
 		f(s);

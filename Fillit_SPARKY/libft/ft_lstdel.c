@@ -5,26 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/21 20:28:43 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/21 20:41:31 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/10/21 07:10:26 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/21 08:06:49 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdel(t_list **alst, void (*del)(void*, size_t))
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	t_list *tmp;
-	t_list *lst;
+	t_list	*link;
 
-	if (alst == NULL)
-		return ;
-	lst = *alst;
-	while (lst != NULL)
+	while (*alst)
 	{
-		tmp = lst->next;
-		ft_lstdelone(&lst, del);
-		lst = tmp;
+		link = *alst;
+		*alst = link->next;
+		del((void*)(link->content), (link->content_size));
+		free(link);
 	}
-	*alst = NULL;
 }

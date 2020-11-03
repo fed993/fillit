@@ -6,7 +6,7 @@
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 23:49:45 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/21 19:46:53 by fpolyans         ###   ########.fr       */
+/*   Updated: 2017/09/28 18:47:33 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		j;
 	char	*cat;
 
-	if (!s1 || !s2)
-		return (NULL);
 	i = 0;
 	j = 0;
 	cat = (char *)malloc((sizeof(char) * (ft_strlen(s1) + ft_strlen(s2))) + 1);

@@ -6,7 +6,7 @@
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/22 03:30:27 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/21 19:53:58 by fpolyans         ###   ########.fr       */
+/*   Updated: 2017/09/28 18:50:28 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	ft_putendl(char const *s)
 	int		i;
 
 	i = 0;
-	if (!s)
-		return ;
 	while (s[i] != '\0')
 	{
 		write(1, &s[i], 1);
